@@ -1,0 +1,26 @@
+.container {
+  display: inline-flex;
+  width: 60%;
+  text-align: center;
+}
+
+.container Input{
+  display: inline-flex;
+  border: 1px solid #3c5aa6;
+  top: 130px;
+  left: 30%;
+  width: 40%;
+  
+}
+
+.container Button{
+  border: 1px solid #3c5aa6;
+  top: 180px;
+  left: -2.5%;
+  width: 25%; 
+  color: white;
+  background-color: #3c5aa6;
+}
+
+
+
