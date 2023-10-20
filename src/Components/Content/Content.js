@@ -1,42 +1,36 @@
 import React from 'react';
-import { useState } from 'react';
 
 import "./Content.css";
 
-import Axios from 'axios';
-import { Input, Button } from 'antd';
+import { Card } from 'antd';
 
-function Content() {
+function Content(props) {
 
-    const [pokemonName, setPokemonName] = useState('');
-
-    const [pokemonData, setPokemonData] = useState({Name: "", Type: "", Img:"", Hp: "", Attack: "", Defence: ""});
-
-    const searchPokemon = () => {
-        Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then((res) => {
-            setPokemonData({
-                Name: res.data.species.name, 
-                Type: res.data.types[0].type.name, 
-                Img: res.data.sprites.front_default, 
-                Hp: res.data.stats[0].base_stat,
-                Attack: res.data.stats[1].base_stat,
-                Defence: res.data.stats[2].base_stat});
-            });
-    }   
+    const capitalizeFirstLetter = (string) =>
+    {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
 
     return (
-        <div className='container'>
-            <Input  
-                type='text'
-                onChange={(event) => setPokemonName(event.target.value) }
-            />
-            <Button type='submit' onClick={searchPokemon} >Search Pokemon</Button>
-
-            
-
-        </div>
-
+            <div>
+            { props.pokemonFlag &&
+                <Card className='cont'
+                    cover={
+                        <img
+                            src={props.pokemonData.Img}
+                        />}
+                        title={<h1>
+                            {capitalizeFirstLetter(props.pokemonData.Name)}
+                        </h1>
+                        }>
+                        <li>Type: {capitalizeFirstLetter(props.pokemonData.Type)}</li>
+                        <li>Hp: {props.pokemonData.Hp}</li>
+                        <li>Attack: {props.pokemonData.Attack}</li>
+                        <li>Defence: {props.pokemonData.Defence}</li>
+                </Card>
+            }
+            </div>
     );
-  }
+}
 
 export default Content

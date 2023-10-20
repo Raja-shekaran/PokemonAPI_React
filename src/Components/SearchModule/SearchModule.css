@@ -1,0 +1,26 @@
+.container {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  text-align: center;
+}
+
+.container Input{
+  text-align: center;
+  border: 1px solid #3c5aa6;
+  top: 150px;
+  left: 25%;
+  width: 40%;
+  
+}
+
+.container Button{
+  border: 1px solid #3c5aa6;
+  top: 200px;
+  left: -8%;
+  width: 25%; 
+  color: white;
+  background-color: #3c5aa6;
+}
+
+
+
